@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Required meta tags -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap JavaScript Libraries -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Jquerry Library -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Numeral Js  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"
+      integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Range Slider -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"
+      integrity="sha512-NWCafukXClS6fKch6bSMl/WvPzZrD1OGMf1oMAnFYXSSKZ7hgeswls+r4SdK4bFJauVwmvFf7HlMwji2TsjROA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"
+      integrity="sha512-kZsqvmw94Y8hyhwtWZJvDtobwQ9pLhF1DuIvcqSuracbRn6WJs1Ih+04fpH/8d1CFKysp7XA1tR0Aa2jKLTQUg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Solar Budget Cal</title>
+    <style>
+      body {
+        background: #efede6;
+      }
+      #mainRowDiv {
+        background: white;
+      }
+      .eachItemOfTopNav {
+        background: #f8f7f3;
+        border-radius: 8px;
+        margin: 2px;
+        width: 100%;
+        text-align: center;
+        align-self: center !important;
+      }
+      .typesOfRoof {
+        background-color: #e4e4e6;
+        color: black;
+        padding: 20px;
+        margin-bottom: 15px;
+      }
+      .typesOfRoof:hover {
+        cursor: pointer;
+      }
+
+      .typesOfAdditionalProduct {
+        background-color: #e4e4e6;
+        color: black;
+        padding: 20px;
+        margin-bottom: 15px;
+      }
+      .typesOfAdditionalProduct:hover {
+        cursor: pointer;
+      }
+
+      .irs--big .irs-bar {
+        border: 0px solid #cd8346;
+        background-image: linear-gradient(to right, #f9c349, #f9c349, #f9c349, #f9c349, #f9c349);
+      }
+      .irs-single {
+        background-image: linear-gradient(to right, #000000, #000000, #000000, #000000, #000000) !important;
+        border-radius: 3px !important;
+      }
+      /* .irs--big .irs-from,
+      .irs--big .irs-to, */
+      .irs--big .irs-single {
+        padding: 5px 8px;
+        top: -10px;
+        font-size: 15px;
+      }
+
+      @media screen and (max-width: 1576px) {
+        #headerNavigation {
+          flex-wrap: wrap !important;
+        }
+        .eachItemOfTopNav {
+          width: 48%;
+          border: 1px solid #eee;
+        }
+      }
+
+      @media screen and (max-width: 960px) {
+        body {
+          padding: 20px;
+        }
+        #rightSideOfMainCalculator {
+          border-radius: 8px;
+        }
+      }
+
+      .eachTypeOfSolarPanel {
+        background: #e4e4e6;
+        padding: 15px;
+      }
+      tr {
+        border-style: none !important;
+        border: 0px solid black !important;
+      }
+
+      td {
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+
+      @media screen and (max-width: 500px) {
+        .removeExtraMarginsAndPaddings {
+          margin-left: 1px !important;
+          margin-right: 1px !important;
+          padding-bottom: 1px !important;
+        }
+        body {
+          padding: 1px !important;
+        }
+        #page_2_mainDivOfRoofType {
+          margin-left: 1px !important;
+          padding-left: 1px !important;
+          width: 95% !important;
+        }
+
+        #page_4_selectAdditionalProductsMainDiv {
+          margin-left: 1px !important;
+          padding-left: 1px !important;
+          width: 95% !important;
+        }
+        #page_3_panelTypeMainDiv {
+          flex-wrap: wrap !important;
+        }
+        #page_3_panelTypeMainDiv > div {
+          margin-top: 10px;
+        }
+        td {
+          font-size: 1.2rem !important;
+          padding: 0px !important;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        td {
+          font-size: 1rem !important;
+          padding: 0px !important;
+        }
+        p {
+          font-size: 1rem !important;
+          padding: 0px !important;
+        }
+      }
+
+      @media screen and (max-width: 362px) {
+        .eachItemOfTopNav {
+          width: 88%;
+          margin-top: 10px;
+          border: 1px solid #eee;
+        }
+      }
+
+      /* flex-wrap: wrap; */
+    </style>
+  </head>
+  <body>
+    <p class="display-4 text-center my-4"><i class="fa-solid fa-money-check-dollar me-2" style="color: #f9c349"></i>Solar Estimate</p>
+    <div id="mainRowDiv" class="row mx-2 mt-5">
+      <div id="rightSideOfMainCalculator" class="col-lg-6 col-md-12 col-sm-12" style="box-shadow: 0px 104px 104px -40px rgb(0 0 0 / 16%)">
+        <header class="mt-1">
+          <div id="headerNavigation" class="d-flex justify-content-evenly topNav">
+            <div id="page_1_nav" class="eachItemOfTopNav p-3" style="background: #f9c349; color: white">
+              <p class="fs-4 my-0 py-0">Roof Size</p>
+            </div>
+            <div id="page_2_nav" class="eachItemOfTopNav p-3">
+              <p class="fs-4 my-0 py-0">Roof Slope</p>
+            </div>
+            <div id="page_3_nav" class="eachItemOfTopNav p-3">
+              <p class="fs-4 my-0 py-0">Panel Type</p>
+            </div>
+            <div id="page_4_nav" class="eachItemOfTopNav p-3">
+              <p class="fs-4 my-0 py-0">Addition</p>
+            </div>
+            <div id="page_5_nav" class="eachItemOfTopNav p-3">
+              <p class="fs-4 my-0 py-0">Summary</p>
+            </div>
+          </div>
+        </header>
+        <main>
+          <!-- PAGE 1 -->
+          <div id="page_1">
+            <p class="my-0 py-0 display-6 text-center mt-5">How big is your roof ?</p>
+            <p class="mt-2 py-0 lead text-center">What exactly the size of your Roof in meter square(m<sup>2</sup>).</p>
+
+            <div class="d-flex justify-content-between mx-5 mt-5 mb-5 pt-5 removeExtraMarginsAndPaddings">
+              <label class="mt-2" style="font-size: 1.55rem; font-weight: 300" for="">Size (m<sup>2</sup>): </label>
+              <input
+                type="text"
+                value="20"
+                class="lead fw-normal text-center py-4"
+                id="sizeSlideInputValue"
+                oninput="changeSlider(this.value)"
+                style="width: 100px; height: 40px"
+                placeholder="m2"
+              />
+            </div>
+
+            <div class="mx-5 mb-5 pb-5 removeExtraMarginsAndPaddings">
+              <input type="text" id="selectAreaRangeSlider" class="mx-3 sizeRangeSlider" name="my_range" value="" />
+            </div>
+          </div>
+          <!-- PAGE 2 -->
+          <div id="page_2" style="display: none">
+            <p class="my-0 py-0 display-6 text-center mt-5">How steep is your roof ?</p>
+            <p class="mt-2 py-0 lead text-center">This helps us calculate the solar effect.</p>
+            <div class="col-lg-6 col-md-6 col-sm-8 col-9 mt-5 pt-5 ms-5 ps-4" id="page_2_mainDivOfRoofType">
+              <div id="page_2_flatRoof" style="background: #f9c349" onclick="selectRoofType('flat')" class="d-flex justify-content-between typesOfRoof">
+                <p class="my-0 mb-0" style="font-weight: 300; line-height: 1.2; font-size: 1.5rem">Flat roof</p>
+                <span class="lead">0-15°</span>
+              </div>
+              <div id="page_2_normalRoof" onclick="selectRoofType('normal')" class="d-flex justify-content-between typesOfRoof">
+                <p class="my-0 mb-0" style="font-weight: 300; line-height: 1.2; font-size: 1.5rem">Normal roof</p>
+                <span class="lead">15-30°</span>
+              </div>
+              <div id="page_2_steepRoof" onclick="selectRoofType('steep')" class="d-flex justify-content-between typesOfRoof">
+                <p class="my-0 mb-0" style="font-weight: 300; line-height: 1.2; font-size: 1.5rem">Steep roof</p>
+                <span class="lead">30° ></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 3 -->
+          <div id="page_3" style="display: none">
+            <p class="my-0 py-0 display-6 text-center mt-5">Type of Solar Panel ?</p>
+            <p class="mt-2 py-0 lead text-center">
+              Choose from our options to find the right solution for you. Price and savings change based on your selections.
+            </p>
+            <div class="d-flex justify-content-between col-lg-11 col-md-9 col-sm-12 mt-5 pt-5 mx-auto" id="page_3_panelTypeMainDiv">
+              <div
+                id="page_3_essentialSolarPanel"
+                style="background: #f9c349"
+                onclick="selectPanelType('essential')"
+                class="text-center mx-auto w-100 eachTypeOfSolarPanel me-2"
+              >
+                <h5>Essential</h5>
+              </div>
+              <div id="page_3_designSolarPanel" onclick="selectPanelType('design')" class="text-center mx-auto w-100 eachTypeOfSolarPanel me-2">
+                <h5>Design</h5>
+              </div>
+              <div id="page_3_proSolarPanel" onclick="selectPanelType('pro')" class="text-center mx-auto w-100 eachTypeOfSolarPanel me-2">
+                <h5>Pro</h5>
+              </div>
+            </div>
+            <div
+              style="box-shadow: 0px 104px 104px -40px rgb(0 0 0 / 16%); padding: 20px; border: 1px solid #eee"
+              class="col-lg-10 col-md-9 col-sm-12 mt-4 mx-auto"
+            >
+              <div class="d-flex justify-content-between">
+                <p class="lead" id="text_1_a">Essential</p>
+                <p class="lead" id="text_1_b">415W</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p class="text-black-50" id="text_2_a">A profitable investment</p>
+                <p class="text-black-50" id="text_2_b">214W/m<sup>2</sup></p>
+              </div>
+              <p class="text-black-50" id="text_3" style="font-size: 1.15rem">
+                Our most cost-effective package for the best possible profitability. Highly efficient solar panels that fit all types of roofs.
+              </p>
+            </div>
+          </div>
+
+          <!-- PAGE 4 -->
+          <div id="page_4" style="display: none">
+            <p class="my-0 py-0 display-6 text-center mt-5">Additional Products Along With Panels ?</p>
+            <p class="mt-2 py-0 lead text-center">
+              Choose from our options to find the right solution for you. Price and savings change based on your selections.
+            </p>
+            <div class="col-xl-5 col-lg-8 col-md-6 col-sm-8 col-9 mt-5 pt-5 ms-5 ps-4" id="page_4_selectAdditionalProductsMainDiv">
+              <div
+                id="page_4_additionalBattery"
+                style="background: #f9c349"
+                onclick="selectAdditionalProduct('battery')"
+                class="d-flex justify-content-between typesOfAdditionalProduct"
+              >
+                <p class="my-0 mb-0" style="font-weight: 300; line-height: 1.2; font-size: 1.5rem"><i class="fa-solid fa-car-battery me-3"></i>Battery</p>
+              </div>
+              <div id="page_4_additionalCharger" onclick="selectAdditionalProduct('charger')" class="d-flex justify-content-between typesOfAdditionalProduct">
+                <p class="my-0 mb-0" style="font-weight: 300; line-height: 1.2; font-size: 1.5rem"><i class="fa-solid fa-bolt me-3"></i>Charger</p>
+              </div>
+            </div>
+          </div>
+          <!-- PAGE 5 -->
+          <div id="page_5" style="display: none">
+            <p class="my-0 py-0 display-6 text-center mt-5">Summary</p>
+            <div class="col-xl-11 col-lg-11 col-md-10 col-sm-10 mt-5 mx-auto">
+              <div
+                class="row mx-auto text-center p-3 text-white"
+                style="
+                  background-image: linear-gradient(to right, #000000, #261317, #451d23, #66272c, #883232);
+                  box-shadow: 0px 104px 104px -40px rgb(0 0 0 / 16%);
+                  border: 1px solid #eee;
+                "
+              >
+                <div class="col-xl-6 col-lg-6 col-md-5 col-sm-6 text-start">
+                  <p class="lead my-0">Solar Panel <span id="page_5_typeOfSolarPanel" style="color: #f9c349">Pro</span></p>
+                  <p class="lead my-0">Solar Cell <span id="page_5_noOfSolarPanel" style="color: #f9c349">34</span></p>
+                  <p class="lead my-0">Roof Slope <span id="page_5_typeOfRoof" style="color: #f9c349">30°</span></p>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-5 col-sm-6 text-start">
+                  <p class="lead my-0">Battery : <span id="page_5_additionalBatteryChosen" style="color: #f9c349">Not Chosen </span></p>
+                  <p class="lead my-0">Charging Box : <span id="page_5_additionalChargerChosen" style="color: #f9c349">Not Chosen</span></p>
+                </div>
+              </div>
+              <div
+                class="mt-5 py-4 px-3"
+                style="
+                  box-shadow: 0px 104px 104px -40px rgb(0 0 0 / 16%);
+                  border: 1px solid #eee;
+                  background-image: linear-gradient(to right, #000000, #261317, #451d23, #66272c, #883232);
+                "
+              >
+                <table class="table table-borderless">
+                  <tbody>
+                    <tr>
+                      <td class="text-white">Total Area</td>
+                      <td class="text-end" style="color: #f9c349"><span id="page_5_totalArea">20</span>(m<sup>2</sup>)</td>
+                    </tr>
+                    <tr>
+                      <td class="text-white">Total Solar Panels</td>
+                      <td class="text-end" style="color: #f9c349" id="page_5_totalPanels">20</td>
+                    </tr>
+                    <tr>
+                      <td class="text-white">Total Panels Price</td>
+                      <td class="text-end" style="color: #f9c349" id="page_5_totalPanelsPrice">89,000 Kr</td>
+                    </tr>
+                    <tr class="">
+                      <td class="text-white">Enova støtten</td>
+                      <td class="text-end" style="color: #f9c349" id="page_5_enoveStotten">119,000 Kr</td>
+                    </tr>
+                    <tr class="">
+                      <td class="text-white">Total Cost</td>
+                      <td class="text-end" style="color: #f9c349">
+                        <span id="page_5_totalCost"></span> - <span>Enova støtten</span>
+
+                        <br />
+                        <span id="page_5_totalOverAllCost"></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="mt-5 mb-3 pt-5">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-lg btn-dark ms-2" onclick="prevPage()"><i class="fa-solid fa-arrow-left me-2"></i>Previous</button>
+            <button onclick="nextPage()" class="btn btn-lg me-2 text-white" style="background-color: #883232">
+              Next <i class="ms-2 fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </footer>
+      </div>
+      <div
+        id="sideImageOfPage"
+        class="col-lg-6 col-md-12 col-sm-12 mx-0 px-0"
+        style="
+          box-shadow: 0px 104px 104px -40px rgb(0 0 0 / 16%);
+          position: relative;
+          transition: all 250ms ease 0s;
+          background-position: center center;
+          background-size: cover;
+          background-image: url(images/house_with_roof_slope.jpg);
+        "
+      >
+        <!-- <img src="images/house with roof slope.jpg" width="100%" alt="" /> -->
+      </div>
+    </div>
+    <script src="js/cal.js"></script>
+
+    <script>
+      var areaSlider = $("#selectAreaRangeSlider").ionRangeSlider({
+        skin: "big",
+        type: "single",
+        min: 0,
+        max: 75,
+        step: 1,
+        from: 20,
+        onChange: function (data) {
+          document.getElementById("sizeSlideInputValue").value = data.input.val();
+          // fired on every range slider update
+        },
+      });
+      var divCount = 1;
+      function nextPage() {
+        if (divCount < 5) {
+          if (divCount == 1) {
+            document.getElementById("sideImageOfPage").style.backgroundImage = "url('images/flat_roof.jpg')";
+          }
+          if (divCount == 2) {
+            document.getElementById("sideImageOfPage").style.backgroundImage = "url('images/essential_panel.jpg')";
+          }
+          if (divCount == 3) {
+            document.getElementById("sideImageOfPage").style.backgroundImage = "url('images/battery.jpg')";
+          }
+          if (divCount == 4) {
+            document.getElementById("sideImageOfPage").style.backgroundImage = "url('images/summary_bg_img.jpg')";
+            summaryCalculations();
+          }
+          $("#page_" + divCount).hide();
+          document.getElementById("page_" + divCount + "_nav").style.background = "#f8f7f3";
+          document.getElementById("page_" + divCount + "_nav").style.color = "black";
+          divCount++;
+          $("#page_" + divCount).show();
+          document.getElementById("page_" + divCount + "_nav").style.background = "#f9c349";
+          document.getElementById("page_" + divCount + "_nav").style.color = "white";
+        }
+      }
+
+      function summaryCalculations() {
+        if (document.getElementById("page_3_essentialSolarPanel").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfSolarPanel").innerHTML = "Essentail";
+        } else if (document.getElementById("page_3_designSolarPanel").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfSolarPanel").innerHTML = "Design";
+        } else if (document.getElementById("page_3_proSolarPanel").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfSolarPanel").innerHTML = "Pro";
+        }
+
+        if (document.getElementById("page_2_flatRoof").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfRoof").innerHTML = "0-15°";
+        } else if (document.getElementById("page_2_normalRoof").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfRoof").innerHTML = "15-30°";
+        } else if (document.getElementById("page_2_steepRoof").style.backgroundColor == "rgb(249, 195, 73)") {
+          document.getElementById("page_5_typeOfRoof").innerHTML = "30° >";
+        }
+
+        // page_5_additionalBatteryChosen
+        // page_5_additionalChargerChosen
+        let area = areaSlider.val();
+        for (let index = 0; index < panelPriceAndNumberBasedOnArea.length; index++) {
+          if (panelPriceAndNumberBasedOnArea[index][0] == area.toString()) {
+            document.getElementById("page_5_totalArea").innerHTML = area;
+            document.getElementById("page_5_totalPanels").innerHTML = panelPriceAndNumberBasedOnArea[index][1];
+            document.getElementById("page_5_noOfSolarPanel").innerHTML = panelPriceAndNumberBasedOnArea[index][1];
+            document.getElementById("page_5_totalPanelsPrice").innerHTML = panelPriceAndNumberBasedOnArea[index][3] + " Kr";
+            let totalOverAllCost = 0;
+            if (document.getElementById("page_4_additionalBattery").style.backgroundColor == "rgb(249, 195, 73)") {
+              totalOverAllCost += batteryPrice;
+              document.getElementById("page_5_additionalBatteryChosen").innerHTML = "Choosen ( " + batteryPrice + " Kr )";
+            } else {
+              document.getElementById("page_5_additionalBatteryChosen").innerHTML = "Not Choosen";
+            }
+            if (document.getElementById("page_4_additionalCharger").style.backgroundColor == "rgb(249, 195, 73)") {
+              totalOverAllCost += chargerPrice;
+              document.getElementById("page_5_additionalChargerChosen").innerHTML = "Choosen ( " + chargerPrice + " Kr )";
+            } else {
+              document.getElementById("page_5_additionalChargerChosen").innerHTML = "Not Choosen";
+            }
+            wattPerMeterSquare = numeral(kiloWattPermeterSquare[index]).value();
+            kiloWattPerPanel = (wattPerMeterSquare * 2.15) / 1000;
+            // kilowatt per panel = W/m2 * 2.15 : 1000
+            // (Kilowatt per panel x No Of Solar Panels / 2000) + 7500kr = Enova støtten
+            enovaStotten = 7500 + (kiloWattPerPanel * panelPriceAndNumberBasedOnArea[index][1]) / (1000 * 2000);
+            document.getElementById("page_5_enoveStotten").innerHTML = enovaStotten.toFixed(2) + " Kr";
+            totalOverAllCost = totalOverAllCost + numeral(panelPriceAndNumberBasedOnArea[index][4]).value();
+
+            document.getElementById("page_5_totalCost").innerHTML = totalOverAllCost.toFixed(0) + " Kr";
+
+            let totalOverAllCostWithDiscount = totalOverAllCost - enovaStotten;
+            document.getElementById("page_5_totalOverAllCost").innerHTML = totalOverAllCostWithDiscount.toFixed(0) + " Kr";
+            // alert("No Of Panels Required are = " + panelPriceAndNumberBasedOnArea[index][1]);
+          }
+        }
+      }
+
+      function prevPage() {
+        if (divCount > 1) {
+          if (divCount == 2) {
+            document.getElementById("sideImageOfPage").style.backgroundImage = "url('images/house_with_roof_slope.jpg')";
+          }
+          $("#page_" + divCount).hide();
+          document.getElementById("page_" + divCount + "_nav").style.background = "#f8f7f3";
+          document.getElementById("page_" + divCount + "_nav").style.color = "black";
+          divCount--;
+          $("#page_" + divCount).show();
+          document.getElementById("page_" + divCount + "_nav").style.background = "#f9c349";
+          document.getElementById("page_" + divCount + "_nav").style.color = "white";
+        }
+      }
+
+      function changeSlider(value) {
+        areaSlider.data("ionRangeSlider").update({
+          from: value,
+        });
+      }
+    </script>
+  </body>
+</html>
